@@ -1,0 +1,23 @@
+1. Home
+2. About Us
+3. Meet The Team
+- name color?
+- dosen to content: mt-10 
+- gap per card: gap-8
+
+4. Gallery
+- container: mt-28
+- font-montserrat
+- text-xl
+- no data : pt-32; font-medium; 
+- my-24
+- per session data : mb-24
+- tittle to image: pb-6
+- gap per image: gap-6
+- ronded image: rounded-2xl
+
+
+5. Announchement
+-
+6. Join
+6.1. form
