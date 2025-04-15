@@ -34,10 +34,10 @@
                     </div>
                     <!-- Informasi Dosen -->
                     <div class="font-montserrat">
-                        <h3 class="text-base sm:text-lg font-semibold text-primary-200">
+                        <h3 class="text-base sm:text-lg font-semibold text-primary-whiteCustom">
                             {{ $elder->nama }}
                         </h3>
-                        <table class="table-auto sm:table-fixed font-medium text-xs sm:text-sm text-xneutral-300 mt-5">
+                        <table class="table-auto sm:table-fixed font-medium text-xs sm:text-sm text-secondary-whiteCustom mt-5">
                             <tbody>
                                 <tr>
                                     <td class="w-4 sm:w-28 align-top">Role</td>
@@ -79,7 +79,7 @@
             @foreach ($teams as $team)
                 <div class="flex gap-8 bg-transparent p-5 rounded-3xl items-top">
                   <!-- Background Animasi Blob -->
-                <div class="animate-blob-blue absolute w-[500px] h-[100px] bg-customBlue mt-5 rounded-full filter blur-md-custom -z-10 opacity-80"></div>
+                <div class="animate-blob-blue absolute w-[500px] h-[100px] bg-customBlue mt-5 rounded-full filter blur-md-custom -z-10 opacity-70"></div>
 
                     <!-- Gambar Tendik -->
                     <div class="w-32 h-32 relative overflow-hidden rounded-full bg-gray-200 flex-shrink-0 hover:animate-zoom-in">
@@ -92,10 +92,10 @@
                     </div>
                     <!-- Informasi Tendik -->
                     <div class="font-montserrat">
-                        <h3 class="text-base sm:text-lg font-semibold text-primary-200">
+                        <h3 class="text-base sm:text-lg font-semibold text-primary-whiteCustom">
                             {{ $team->nama }}
                         </h3>
-                        <table class="table-auto sm:table-fixed font-medium text-xs sm:text-sm text-xneutral-300 mt-5">
+                        <table class="table-auto sm:table-fixed font-medium text-xs sm:text-sm text-secondary-whiteCustom mt-5">
                             <tbody>
                                 <tr class="py-12">
                                     <td class="w-4 sm:w-28 align-top">Role</td>

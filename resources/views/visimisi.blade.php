@@ -29,8 +29,8 @@
         </div>
 
         <!-- Blue Separator Between VISI and MISI (Positioned Absolutely) -->
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-full bg-customBlue rounded-full my-6"></div>
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-full bg-customBlue blur-xl rounded-full my-6"></div>
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-customBlue rounded-full my-6"></div>
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full bg-customBlue blur-xl rounded-full my-6"></div>
 
         <!-- MISI Section -->
         <div class="space-y-3">
@@ -51,15 +51,15 @@
         class="grid grid-cols-1 sm:grid-cols-3 bg-transparent rounded-3xl overflow-hidden"
       >
         <!-- Background Animasi Blob -->
-        <div class="animate-blob-blue absolute w-[1080px] h-[450px] bg-customBlue mt-7 rounded-full filter blur-md-custom -z-10 opacity-60"></div>
+        <div class="animate-blob-blue absolute w-[1080px] h-[450px] bg-customBlue mt-7 rounded-full filter blur-md-custom -z-10 opacity-40"></div>
         <div class="p-[30px]">
           <h2
-            class="text-base sm:text-lg font-semibold text-primary-blackCustom font-montserrat"
+            class="text-base sm:text-lg font-semibold text-primary-whiteCustom font-montserrat"
           >
           Inovatif
           </h2>
           <p
-            class="font-montserrat font-medium mt-4 text-primary-blackCustom text-xs sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-primary-whiteCustom text-xs sm:text-sm"
           >
           We empower youth with the knowledge, skills, and opportunities to become leaders in sustainability and social change. Education is the foundation for informed action, enabling youth to make a lasting impact.        </div>
         <div>
@@ -68,17 +68,17 @@
                 <img src="{{ asset('storage/'. $visimisiImg[0]) }}" alt="Inovatif" class="w-full object-cover rounded-2xl" />
               </div>
             @else
-                <p class="text-secondary-blackCustom">No Image Available</p>
+                <p class="text-secondary-whiteCustom">No Image Available</p>
             @endif
         </div>
         <div class="p-[30px]">
           <h2
-            class="text-base sm:text-lg font-semibold text-primary-blackCustom font-montserrat"
+            class="text-base sm:text-lg font-semibold text-primary-whiteCustom font-montserrat"
           >
           Collaboration
           </h2>
           <p
-            class="font-montserrat font-medium mt-4 text-primary-blackCustom text-xs sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-primary-whiteCustom text-xs sm:text-sm"
           >
           We believe that by working together, we can create solutions that tackle global challenges. Collaboration enables us to bridge differences, foster innovation, and amplify our collective impact.
           </p>
@@ -89,17 +89,17 @@
                 <img src="{{ asset('storage/'. $visimisiImg[1]) }}" alt="Inovatif" class="w-full object-cover rounded-2xl" />
               </div>            
             @else
-                <p class="text-secondary-blackCustom">No Image Available</p>
+                <p class="text-secondary-whiteCustom">No Image Available</p>
             @endif
         </div>
         <div class="p-[30px]">
           <h2
-            class="text-base sm:text-lg font-semibold text-primary-blackCustom font-montserrat"
+            class="text-base sm:text-lg font-semibold text-primary-whiteCustom font-montserrat"
           >
           Action for Change
           </h2>
           <p
-            class="font-montserrat font-medium mt-4 text-primary-blackCustom text-xs sm:text-sm"
+            class="font-montserrat font-medium mt-4 text-primary-whiteCustom text-xs sm:text-sm"
           >
           Through impactful projects and events, we enable youth to take action and drive real change. Small actions lead to significant results, creating positive impacts in their communities and beyond.
           </p>
@@ -107,10 +107,10 @@
         <div>
             @if(isset($visimisiImg[2]))
               <div class="p-[30px] sm:col-span-5 relative overflow-hidden rounded-3xl">
-                  <img src="{{ asset('storage/'. $visimisiImg[1]) }}" alt="Inovatif" class="w-full object-cover rounded-2xl" />
+                  <img src="{{ asset('storage/'. $visimisiImg[2]) }}" alt="Inovatif" class="w-full object-cover rounded-2xl" />
               </div>            
             @else
-                <p class="text-secondary-blackCustom">No Image Available</p>
+                <p class="text-secondary-whiteCustom">No Image Available</p>
             @endif
         </div>
       </div>

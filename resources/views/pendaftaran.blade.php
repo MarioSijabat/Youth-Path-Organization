@@ -192,13 +192,13 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-12 md:gap-[124px] !mt-[90px]">
       <a
         href="/"
-        class="px-3 py-4 text-center font-montserrat hover:animate-zoom-in text-primary-whiteCustom bg-transparent text-lg font-semibold border-primary-200 text-primary-200 rounded-full"
+        class="px-3 py-4 text-center font-montserrat hover:animate-zoom-in hover:drop-shadowBlue-custom text-primary-whiteCustom bg-transparent text-lg font-semibold border-primary-200 text-primary-200 rounded-full"
       >
         Back To Homepage
       </a>
       <button
         type="submit"
-        class="px-3 py-4 text-center font-montserrat text-neutral-0 hover:animate-zoom-in bg-white border text-lg font-semibold border-4 text-primary-blackCustom rounded-full"
+        class="px-3 py-4 text-center font-montserrat text-neutral-0 hover:animate-zoom-in hover:drop-shadowBlue-custom bg-customBlue text-lg font-semibold text-primary-blackCustom rounded-full"
       >
         Send Request
       </button>

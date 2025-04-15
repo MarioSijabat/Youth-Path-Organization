@@ -6,7 +6,7 @@
     <div class="flex ml-5">
       <a href="{{route('/')}}">
         <img
-          src="{{asset('assets/images/pyo-logo.png')}}"
+          src="{{asset('assets/images/ypo-logo.png')}}"
           height="50"
           class="max-h-[60px]"
           alt=""
@@ -19,33 +19,33 @@
           <div
             class="flex items-center gap-1.5 x-dropdown-button cursor-pointer peer"
           >
-            <span class="font-semibold">About Us</span>
+            <span class="font-semibold text-primary-whiteCustom">About Us</span>
             <i
-              class="bi bi-chevron-down group-hover:rotate-180 transition-all"
+              class="bi bi-chevron-down text-primary-whiteCustom group-hover:rotate-180 transition-all"
             ></i>
           </div>
           <div
             class="hidden peer-hover:block hover:block group-hover:block absolute rounded-xl overflow-hidden top-full w-fit shadow-xl"
           >
             <div class="pt-12">
-              <ul class="bg-white list-disc text-nowrap pl-8 p-3 rounded-xl">
+              <ul class="bg-dropdown list-disc text-nowrap pl-8 p-3 rounded-xl">
                 <li>
-                  <a href="{{route('sejarah')}}" class="w-full block pl-2 pr-8 py-1"
+                  <a href="{{route('sejarah')}}" class="w-full block pl-2 pr-8 py-1 text-primary-whiteCustom"
                     >Our Journey</a
                   >
                 </li>
                 <li>
-                  <a href="{{route('visimisi')}}" class="w-full block pl-2 pr-8 py-1"
+                  <a href="{{route('visimisi')}}" class="w-full block pl-2 pr-8 py-1 text-primary-whiteCustom"
                     >Our Purpose</a
                   >
                 </li>
                 <li>
-                  <a href="{{route('sambutan')}}" class="w-full block pl-2 pr-8 py-1"
+                  <a href="{{route('sambutan')}}" class="w-full block pl-2 pr-8 py-1 text-primary-whiteCustom"
                     >From The Leaders</a
                   >
                 </li>
                 <li>
-                  <a href="{{route('fasilitas')}}" class="w-full block pl-2 pr-8 py-1"
+                  <a href="{{route('fasilitas')}}" class="w-full block pl-2 pr-8 py-1 text-primary-whiteCustom"
                     >Facilities</a
                   >
                 </li>
@@ -54,20 +54,20 @@
           </div>
         </li>
         <li>
-          <a href="{{route('sdm')}}" class="font-semibold">Meet The Team</a>
+          <a href="{{route('sdm')}}" class="font-semibold text-primary-whiteCustom">Meet The Team</a>
         </li>
         <li>
-          <a href="{{route('gallery')}}" class="font-semibold">Gallery</a>
+          <a href="{{route('gallery')}}" class="font-semibold text-primary-whiteCustom">Gallery</a>
         </li>
         <li>
-          <a href="{{route('pengumuman')}}" class="font-semibold">Announchement</a>
+          <a href="{{route('pengumuman')}}" class="font-semibold text-primary-whiteCustom">Announchement</a>
         </li>
       </ul>
     </div>
     <div class="hidden md:flex">
       <a
       href="{{ route('pendaftaran')}}"
-      class="relative px-9 py-1 mr-7 font-bold text-lg text-customBlue border border-customBlue border-4 hover:animate-zoom-in rounded-full"
+      class="relative px-9 py-1 mr-7 text-primary-whiteCustom hover:drop-shadowBlue-custom font-bold text-lg text-customBlue border border-customBlue border-4 hover:animate-zoom-in rounded-full"
     >Join</a>
     
     </div>
