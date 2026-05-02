@@ -8,7 +8,7 @@
     <div>
       <img
         class="rounded-2xl"
-        src="{{$datafooter->image ? Storage::url($datafooter->image) : asset('assets/images/ypo-logo.png')}}"
+        src="{{ $datafooter?->image ? Storage::url($datafooter->image) : asset('assets/images/ypo-logo.png') }}"
         alt="Logo PYO"
       />
     </div>
@@ -22,19 +22,19 @@
         <div class="flex gap-4">
           <i class="bi bi-geo-alt-fill text-primary-whiteCustom"></i>
           <p class="font-poppins text-primary-whiteCustom text-sm">
-            {{$datafooter->alamat ?? 'null'}}
+            {{ $datafooter?->alamat ?? 'Address not set' }}
           </p>
         </div>
         <div class="flex gap-4">
           <i class="bi bi-envelope text-primary-whiteCustom "></i>
           <p class="font-poppins text-primary-whiteCustom text-sm">
-            {{$datafooter->email ?? 'null'}}
+            {{ $datafooter?->email ?? 'Email not set' }}
           </p>
         </div>
         <div class="flex gap-4">
           <i class="bi bi-whatsapp text-primary-whiteCustom"></i>
           <p class="font-poppins text-primary-whiteCustom text-sm">
-            {{$datafooter->wa ?? 'null'}}
+            {{ $datafooter?->wa ?? 'WhatsApp not set' }}
           </p>
         </div>
       </div>
@@ -46,16 +46,16 @@
         Our Social Media
       </h4>
       <div class="flex items-center gap-4">
-        <a href="{{ $datafooter->link_facebook ?? '#' }}" class="w-8 h-8 grid rounded-full">
+        <a href="{{ $datafooter?->link_facebook ?? '#' }}" class="w-8 h-8 grid rounded-full">
           <i class="bi bi-facebook text-2xl text-white hover:animate-zoom-in"></i>
         </a>
-        <a href="{{ $datafooter->link_instagram ?? '#' }}" class="w-8 h-8 grid rounded-xl">
+        <a href="{{ $datafooter?->link_instagram ?? '#' }}" class="w-8 h-8 grid rounded-xl">
           <i class="bi bi-instagram text-2xl text-white hover:animate-zoom-in"></i>
         </a>
-        <a href="{{ $datafooter->link_linkedin ?? '#' }}" class="w-8 h-8 grid rounded-full">
+        <a href="{{ $datafooter?->link_linkedin ?? '#' }}" class="w-8 h-8 grid rounded-full">
           <i class="bi bi-linkedin text-2xl text-white hover:animate-zoom-in"></i>
         </a>
-        <a href="{{ $datafooter->link_youtube ?? '#' }}" class="w-8 h-8 grid rounded-full">
+        <a href="{{ $datafooter?->link_youtube ?? '#' }}" class="w-8 h-8 grid rounded-full">
           <i class="bi bi-youtube text-2xl text-white hover:animate-zoom-in"></i>
         </a>
       </div>
