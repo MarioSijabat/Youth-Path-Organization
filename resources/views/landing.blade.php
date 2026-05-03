@@ -5,7 +5,6 @@
     <!-- HERO SECTION -->
     <section class="relative container mx-0 mt-0">
       <div
-        id="hero-1"
         class="absolute top-0 left-0 w-full h-full flex flex-col lg:flex-row lg:portrait:flex-col items-center justify-start rounded-[30px]"
       >
         <div class="md:pl-12 w-full lg:w-1/2 lg:portrait:w-full">
