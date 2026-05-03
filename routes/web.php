@@ -1,19 +1,34 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LandingPage\LandingPageController;
+use App\Http\Controllers\History\HistoryController;
+use App\Http\Controllers\VisionMission\VisionMissionController;
+use App\Http\Controllers\Facility\FacilityController;
+use App\Http\Controllers\Greeting\GreetingController;
+use App\Http\Controllers\Gallery\GalleryController;
+use App\Http\Controllers\Staff\StaffController;
+use App\Http\Controllers\Announcement\AnnouncementController;
+use App\Http\Controllers\Application\ApplicationController;
+use App\Http\Controllers\News\NewsController;
 
-Route::get('/', [App\Http\Controllers\LandingPage\LandingPageController::class, 'index'])->name('/');
-Route::get('/sejarah', [App\Http\Controllers\Sejarah\SejarahController::class, 'index'])->name('sejarah');
-Route::get('/visimisi', [App\Http\Controllers\Visimisi\VisimisiController::class, 'index'])->name('visimisi');
-Route::get('/fasilitas', [App\Http\Controllers\Fasilitas\FasilitasController::class, 'index'])->name('fasilitas');
-Route::get('/sambutan', [App\Http\Controllers\Sambutan\SambutanController::class, 'index'])->name('sambutan');
-Route::get('/gallery', [App\Http\Controllers\Gallery\GalleryController::class, 'index'])->name('gallery');
-Route::get('/sdm', [App\Http\Controllers\Sdm\SdmController::class, 'index'])->name('sdm');
-Route::get('/pengumuman', [App\Http\Controllers\Pengumuman\PengumumanController::class, 'index'])->name('pengumuman');
-Route::get('/pendaftaran', [App\Http\Controllers\Pendaftaran\PendaftaranController::class, 'index'])->name('pendaftaran');
-Route::post('/pendaftaran/store', [App\Http\Controllers\Pendaftaran\PendaftaranController::class, 'store'])->name('pendaftaran.store');
+Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 
-// Route untuk menampilkan detail pengumuman berdasarkan slug
-Route::get('/pengumuman/{slug}', [App\Http\Controllers\Pengumuman\PengumumanController::class, 'show'])->name('pengumuman.show');
-Route::get('/berita/{slug}', [App\Http\Controllers\News\NewsController::class, 'show'])->name('berita.show');
+Route::get('/history', [HistoryController::class, 'index'])->name('history');
+Route::get('/vision-mission', [VisionMissionController::class, 'index'])->name('vision-mission');
+Route::get('/facilities', [FacilityController::class, 'index'])->name('facilities');
+Route::get('/greeting', [GreetingController::class, 'index'])->name('greeting');
+Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/staff', [StaffController::class, 'index'])->name('staff');
 
+Route::group(['prefix' => 'announcements', 'as' => 'announcements.'], function () {
+    Route::get('/', [AnnouncementController::class, 'index'])->name('index');
+    Route::get('/{slug}', [AnnouncementController::class, 'show'])->name('show');
+});
+
+Route::group(['prefix' => 'application', 'as' => 'application.'], function () {
+    Route::get('/', [ApplicationController::class, 'index'])->name('index');
+    Route::post('/store', [ApplicationController::class, 'store'])->name('store');
+});
+
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');

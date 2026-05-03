@@ -10,13 +10,13 @@
       Browse Through the Transformative Actions of Our Community
     </p>
 
-    @if ($galeries->isEmpty())
+    @if ($galleries->isEmpty())
         <div class="text-center text-secondary-whiteCustom pt-32 font-montserrat font-medium text-sm sm:text-base">
             No Data Available
         </div>
     @else
         <div class="my-15">
-            @foreach ($galeries as $gallery)
+            @foreach ($galleries as $gallery)
                 <!-- Title for each gallery -->
                 <div class="mb-24">
                     <h2 class="text-center pb-6 font-montserrat text-xl sm:text-2xl font-semibold text-primary-whiteCustom">

@@ -9,8 +9,8 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galeries = Gallery::all();
+        $galleries = Gallery::all();
 
-        return view('gallery', compact('galeries'));
+        return view('gallery', compact('galleries'));
     }
 }
