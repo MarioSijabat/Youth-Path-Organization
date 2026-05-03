@@ -11,6 +11,8 @@ use App\Http\Controllers\Staff\StaffController;
 use App\Http\Controllers\Announcement\AnnouncementController;
 use App\Http\Controllers\Application\ApplicationController;
 use App\Http\Controllers\News\NewsController;
+use Illuminate\Support\Facades\Artisan;
+use App\App\Controllers\PostController;
 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 
@@ -32,3 +34,36 @@ Route::group(['prefix' => 'application', 'as' => 'application.'], function () {
 });
 
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news.show');
+
+
+Route::get('/deploy/webhook/{token}', function ($token) {
+    $expectedToken = env('DEPLOY_TOKEN');
+    
+    if (!$expectedToken || $token !== $expectedToken) {
+        abort(403, 'Unauthorized');
+    }
+
+    try {
+        $zipPath = base_path('build.zip');
+        if (file_exists($zipPath)) {
+            $zip = new ZipArchive;
+            if ($zip->open($zipPath) === TRUE) {
+                $zip->extractTo(base_path());
+                $zip->close();
+                unlink($zipPath);
+            } else {
+                throw new \Exception("Gagal mengekstrak build.zip di server");
+            }
+        }
+
+        Artisan::call('migrate', ['--force' => true]);
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        Artisan::call('view:clear');
+        Artisan::call('route:clear');
+        
+        return response()->json(['message' => 'Deployment kilat via ZIP sukses!']);
+    } catch (\Exception $e) {
+        return response()->json(['error' => $e->getMessage()], 500);
+    }
+});

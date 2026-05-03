@@ -1,0 +1,54 @@
+name: Deploy YPO to cPanel
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deployment:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup PHP 8.4
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.4"
+          extensions: intl, bcmath, fileinfo, mbstring, pdo_mysql
+
+      - name: 📦 Install Dependencies
+        run: composer install --no-dev --optimize-autoloader --no-interaction
+          --prefer-dist
+
+      - name: 🛠️ Build Frontend
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: |
+          npm install
+          npm run build
+
+      - name: 🗜️ Compress Project to ZIP
+        run: |
+          mkdir deploy_dist
+          zip -qq -r deploy_dist/build.zip . -x "*.git*" "node_modules/*" "deploy_dist/*"
+
+      - name: 📂 Upload ZIP via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+
+          local-dir: ./deploy_dist/
+          server-dir: /
+
+      - name: 🚀 Trigger Unzip & Migration
+        run: |
+          curl -s -X GET "https://youthpathorganisation.marriosijabat.my.id/deploy/webhook/4nsokerQ65VFVn5iQrTmcFpVGBUznzIGcgTFC5KFEU"
