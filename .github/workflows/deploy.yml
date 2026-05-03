@@ -43,7 +43,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./deploy_dist/
           server-dir: /
-          # Paksa menggunakan protokol FTP standar jika port 22/TLS bermasalah
           protocol: ftp
           port: 21
 
