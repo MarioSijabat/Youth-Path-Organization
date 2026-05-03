@@ -12,8 +12,8 @@ use App\Http\Controllers\Announcement\AnnouncementController;
 use App\Http\Controllers\Application\ApplicationController;
 use App\Http\Controllers\News\NewsController;
 use Illuminate\Support\Facades\Artisan;
-use App\App\Controllers\PostController;
-
+use App\Http\Controllers\PostController;
+ 
 Route::get('/', [LandingPageController::class, 'index'])->name('landing');
 
 Route::get('/history', [HistoryController::class, 'index'])->name('history');

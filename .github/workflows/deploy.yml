@@ -9,9 +9,6 @@ jobs:
     name: Build & Deploy
     runs-on: ubuntu-latest
 
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
     steps:
       - name: 🚚 Get latest code
         uses: actions/checkout@v4
@@ -23,8 +20,7 @@ jobs:
           extensions: intl, bcmath, fileinfo, mbstring, pdo_mysql
 
       - name: 📦 Install Dependencies
-        run: composer install --no-dev --optimize-autoloader --no-interaction
-          --prefer-dist
+        run: composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
       - name: 🛠️ Build Frontend
         uses: actions/setup-node@v4
@@ -45,9 +41,11 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-
           local-dir: ./deploy_dist/
           server-dir: /
+          # Paksa menggunakan protokol FTP standar jika port 22/TLS bermasalah
+          protocol: ftp
+          port: 21
 
       - name: 🚀 Trigger Unzip & Migration
         run: |
