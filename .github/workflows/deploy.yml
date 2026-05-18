@@ -48,4 +48,12 @@ jobs:
 
       - name: 🚀 Trigger Unzip & Migration
         run: |
-          curl -s -X GET "https://youthpathorganisation.marriosijabat.my.id/deploy/webhook/4nsokerQ65VFVn5iQrTmcFpVGBUznzIGcgTFC5KFEU"
+          RESPONSE=$(curl -w "\nHTTP_STATUS:%{http_code}" -s -X GET "https://youthpathorganisation.bagussi.my.id/deploy/webhook/4nsokerQ65VFVn5iQrTmcFpVGBUznzIGcgTFC5KFEU")
+          
+          echo "Server Response:"
+          echo "$RESPONSE"
+          
+          if [[ "$RESPONSE" != *"HTTP_STATUS:200"* ]]; then
+            echo "Deployment Webhook Gagal!"
+            exit 1
+          fi
