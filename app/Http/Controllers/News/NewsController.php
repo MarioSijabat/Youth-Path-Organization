@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\News;
 
 class NewsController extends Controller
 {
     public function show($slug)
     {
-        $berita = News::where('slug', $slug)->first();
+        $article = News::where('slug', $slug)->firstOrFail();
 
-        return view('berita/show', compact('berita'));
+        return view('news.show', compact('article'));
     }
 }
