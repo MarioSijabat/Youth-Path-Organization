@@ -8,7 +8,7 @@
     <div>
       <img
         class="rounded-2xl"
-        src="{{$datafooter->image ? Storage::url($datafooter->image) : asset('assets/images/B-Uni.png')}}"
+src="{{ $datafooter?->image ? Storage::url($datafooter->image) : asset('assets/images/B-Uni.png') }}"
         alt="Logo B-Universitas"
       />
     </div>
