@@ -9,7 +9,7 @@
       @if($datafooter && $datafooter->image)
         <img
           class="rounded-2xl max-h-16"
-          src="{{ Storage::url($datafooter->image) }}"
+          src="{{ $datafooter?->image ? Storage::url($datafooter->image) : asset('assets/images/B-Uni.png') }}"
           alt="Logo"
         />
       @else
