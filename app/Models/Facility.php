@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Facility extends Model
+class facility extends Model
 {
     use HasFactory;
-
-    protected $fillable = ['title', 'image', 'content'];
+    protected $guarded = [];
 }

@@ -2,22 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Footer extends Model
+class footer extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'image',
-        'link_instagram',
-        'link_youtube',
-        'link_linkedin',
-        'link_facebook',
-        'address',
-        'email',
-        'whatsapp_number',
-        'google_maps_link'
-    ];
+    protected $guarded = [];
 }

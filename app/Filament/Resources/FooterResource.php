@@ -3,18 +3,21 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\FooterResource\Pages;
+use App\Filament\Resources\FooterResource\RelationManagers;
 use App\Models\Footer;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class FooterResource extends Resource
 {
     protected static ?string $model = Footer::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-adjustments-horizontal';
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -24,33 +27,28 @@ class FooterResource extends Resource
                     ->image()
                     ->required(),
                 Forms\Components\TextInput::make('link_instagram')
-                    ->url()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('link_youtube')
-                    ->url()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('link_linkedin')
-                    ->url()
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('link_facebook')
-                    ->url()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('address')
+                Forms\Components\TextInput::make('alamat')
                     ->required()
                     ->maxLength(255),
                 Forms\Components\TextInput::make('email')
                     ->email()
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('whatsapp_number')
+                Forms\Components\TextInput::make('wa')
                     ->required()
                     ->maxLength(255),
-                Forms\Components\TextInput::make('google_maps_link')
-                    ->url()
+                Forms\Components\TextInput::make('link_gmaps')
                     ->required()
                     ->maxLength(255),
             ]);
@@ -60,16 +58,28 @@ class FooterResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\ImageColumn::make('image')
-                    ->circular(),
-                Tables\Columns\TextColumn::make('address')
-                    ->limit(30)
+                Tables\Columns\ImageColumn::make('image'),
+                Tables\Columns\TextColumn::make('link_instagram')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('link_youtube')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('link_linkedin')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('link_facebook')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('alamat')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
                     ->searchable(),
-                Tables\Columns\TextColumn::make('whatsapp_number')
+                Tables\Columns\TextColumn::make('wa')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('link_gmaps')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
+                    ->dateTime()
+                    ->sortable()
+                    ->toggleable(isToggledHiddenByDefault: true),
+                Tables\Columns\TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
                     ->toggleable(isToggledHiddenByDefault: true),
