@@ -16,4 +16,3 @@ Route::post('/pendaftaran/store', [App\Http\Controllers\Pendaftaran\PendaftaranC
 // Route untuk menampilkan detail pengumuman berdasarkan slug
 Route::get('/pengumuman/{slug}', [App\Http\Controllers\Pengumuman\PengumumanController::class, 'show'])->name('pengumuman.show');
 Route::get('/berita/{slug}', [App\Http\Controllers\News\NewsController::class, 'show'])->name('berita.show');
- 
